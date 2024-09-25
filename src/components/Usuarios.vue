@@ -12,10 +12,10 @@
             <tbody>
                 <tr v-for="usuario in usuarios">
                     <td >
-                        {{ usuario.Nombre }}
+                        {{ usuario.nombre }}
                     </td>
                     <td >
-                        {{ usuario.Email }}
+                        {{ usuario.email }}
                     </td>
                     <td>
                         <button>Eliminar</button>
