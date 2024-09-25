@@ -39,7 +39,6 @@ export default {
         ...mapActions(['eliminarUsuario']),
         async eliminarUsuario(id) {
             await this.$store.dispatch('eliminarUsuario', id);
-            location.reload();
         }
     },
     mounted() {

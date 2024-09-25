@@ -30,11 +30,13 @@ export default createStore(
                 const db = getFirestore(firebaseApp);
                 const usuariosRef = collection(db, 'usuarios');
                 await addDoc(usuariosRef, usuario);
+                location.reload();
             },
             async eliminarUsuario({ commit }, id) {
                 const db = getFirestore(firebaseApp);
                 const docRef = doc(db, 'usuarios', id);
                 await deleteDoc(docRef);
+                location.reload();
             }
         }
     }
