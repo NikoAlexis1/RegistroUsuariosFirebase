@@ -5,7 +5,7 @@
             <thead>
                 <tr>
                     <th>Nombre</th>
-                    <th>Correo</th>
+                    <th>Email</th>
                 </tr>
             </thead>
             <tbody>
@@ -14,7 +14,7 @@
                         {{ usuario.Nombre }}
                     </td>
                     <td >
-                        {{ usuario.Correo }}
+                        {{ usuario.Email }}
                     </td>
                 </tr>
             </tbody>
@@ -26,27 +26,15 @@
 </template>
 
 <script>
-import { getFirestore, collection, getDocs } from "firebase/firestore";
-import firebaseApp from "../firebaseConfig";
+import { mapState} from 'vuex';
 export default {
-    name: "FirebaseComponent",
-    data() {
-        return {
-            usuarios: [],
-        }
+    computed: {
+        ...mapState(['usuarios'])
     },
-    async mounted() {
-        try {
-            const db = getFirestore(firebaseApp);
-            const querySnapshot = await getDocs(collection(db, "usuarios"));
-            querySnapshot.forEach((doc) => {
-                this.usuarios.push(doc.data());
-            });
-        } catch (error) {
-            conosole.log(error);
-        }
-
-
+    methods:{
+    },
+    mounted() {
+        this.$store.dispatch('obtenerUsuarios');
     }
 }
 </script>
