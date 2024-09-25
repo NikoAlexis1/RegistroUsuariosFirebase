@@ -18,7 +18,7 @@
                         {{ usuario.email }}
                     </td>
                     <td>
-                        <button>Eliminar</button>
+                        <button @click="eliminarUsuario(usuario.id)">Eliminar</button>
                     </td>
                 </tr>
             </tbody>
@@ -30,12 +30,17 @@
 </template>
 
 <script>
-import { mapState} from 'vuex';
+import { mapState, mapActions} from 'vuex';
 export default {
     computed: {
         ...mapState(['usuarios'])
     },
     methods:{
+        ...mapActions(['eliminarUsuario']),
+        async eliminarUsuario(id) {
+            await this.$store.dispatch('eliminarUsuario', id);
+            location.reload();
+        }
     },
     mounted() {
         this.$store.dispatch('obtenerUsuarios');

@@ -1,5 +1,5 @@
 import { createStore } from "vuex";
-import { getFirestore, collection, getDocs, onSnapshot, addDoc, doc, deleteDoc } from "firebase/firestore";
+import { getFirestore, collection, getDocs, addDoc, doc, deleteDoc } from "firebase/firestore";
 import firebaseApp from "../firebaseConfig";
 
 export default createStore(
@@ -31,6 +31,11 @@ export default createStore(
                 const usuariosRef = collection(db, 'usuarios');
                 await addDoc(usuariosRef, usuario);
             },
+            async eliminarUsuario({ commit }, id) {
+                const db = getFirestore(firebaseApp);
+                const docRef = doc(db, 'usuarios', id);
+                await deleteDoc(docRef);
+            }
         }
     }
 )

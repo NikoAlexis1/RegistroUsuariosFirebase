@@ -3,10 +3,10 @@
         <h1>Formulario</h1>
         <form @submit.prevent="agregarUser">
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" v-model="nombre">
+            <input type="text" id="nombre" v-model="nombre" placeholder="Escribe tu nombre">
             <label for="email">Email:</label>
-            <input type="email" id="email" v-model="email">
-            <button>Registrar</button>
+            <input type="email" id="email" v-model="email" placeholder="Escribe tu email">
+            <button >Registrar</button>
         </form>
     </div>
 </template>
