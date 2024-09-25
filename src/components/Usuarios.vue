@@ -6,6 +6,7 @@
                 <tr>
                     <th>Nombre</th>
                     <th>Email</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -15,6 +16,9 @@
                     </td>
                     <td >
                         {{ usuario.Email }}
+                    </td>
+                    <td>
+                        <button>Eliminar</button>
                     </td>
                 </tr>
             </tbody>
